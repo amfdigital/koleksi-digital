@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Koleksi Hasil Kerja Digital</title>
     <style>
-        /* --- RESET & BASE STYLES --- */
+        /* --- STYLES UTAMA --- */
         * {
             margin: 0;
             padding: 0;
@@ -14,119 +14,123 @@
         }
 
         body {
-            background-color: #f8f9fa;
-            color: #333;
+            background-color: #f3f4f6;
+            color: #1f2937;
             line-height: 1.6;
         }
 
         header {
-            background-color: #1a1a1a;
+            background-color: #111827;
             color: #ffffff;
             text-align: center;
-            padding: 2.5rem 1rem;
+            padding: 3rem 1rem;
+            border-bottom: 4px solid #3b82f6;
         }
 
         header h1 {
-            font-size: 1.8rem;
+            font-size: 2rem;
             margin-bottom: 0.5rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
         }
 
         header p {
-            color: #aaa;
-            font-size: 0.95rem;
+            color: #9ca3af;
+            font-size: 1rem;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         .container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 1.5rem;
+            padding: 2rem 1rem;
         }
 
-        /* --- FILTER BUTTONS (Mobile Responsive) --- */
+        /* --- BUTANG PENAPIS (MOBILE FRIENDLY) --- */
         .filter-container {
             display: flex;
             justify-content: center;
             gap: 0.5rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap; /* Butang turun bawah automatik jika skrin kecil */
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
         }
 
         .filter-btn {
             background: #ffffff;
-            border: 1px solid #ddd;
-            padding: 0.5rem 1.2rem;
+            border: 1px solid #e5e7eb;
+            padding: 0.6rem 1.2rem;
             font-size: 0.9rem;
-            border-radius: 20px;
+            font-weight: 600;
+            border-radius: 9999px;
             cursor: pointer;
             transition: all 0.2s ease;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
         }
 
         .filter-btn.active, .filter-btn:hover {
-            background: #007bff;
+            background: #3b82f6;
             color: white;
-            border-color: #007bff;
+            border-color: #3b82f6;
         }
 
-        /* --- PORTFOLIO GRID --- */
+        /* --- GRID UTAMA --- */
         .portfolio-grid {
             display: grid;
-            grid-template-columns: 1fr; /* 1 kolum untuk telefon pintar */
+            grid-template-columns: 1fr;
             gap: 1.5rem;
         }
 
-        /* Skrin Tablet (Lebih besar dari 600px) -> 2 Kolum */
-        @media (min-width: 600px) {
+        @media (min-width: 640px) {
             .portfolio-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
 
-        /* Skrin Laptop/PC (Lebih besar dari 900px) -> 3 Kolum */
-        @media (min-width: 900px) {
+        @media (min-width: 1024px) {
             .portfolio-grid {
                 grid-template-columns: repeat(3, 1fr);
             }
         }
 
-        /* --- CARD STYLE --- */
+        /* --- KAD PORTFOLIO --- */
         .portfolio-item {
             background: #ffffff;
-            border-radius: 8px;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            transition: transform 0.2s ease;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
             display: flex;
             flex-direction: column;
         }
 
         .portfolio-item:hover {
-            transform: translateY(-5px); /* Efek terapung sedikit bila mouse lalu */
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
         }
 
         .portfolio-item.hide {
-            display: none; /* Menyembunyikan item yang tidak dipilih */
+            display: none;
         }
 
-        /* Bahagian Gambar Visual */
+        /* Visual & Fail Gambar */
         .item-thumbnail {
             width: 100%;
-            height: 200px;
-            background-color: #ddd;
+            height: 220px;
+            background-color: #e5e7eb;
             overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            position: relative;
         }
 
         .item-thumbnail img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Gambar akan dipotong muat-muat ke dalam kotak */
+            object-fit: cover;
         }
 
-        /* Bahagian Info Teks */
+        /* Kandungan Teks */
         .item-info {
-            padding: 1.2rem;
+            padding: 1.5rem;
             display: flex;
             flex-direction: column;
             flex-grow: 1;
@@ -134,39 +138,52 @@
 
         .badge {
             align-self: flex-start;
-            background: #e9ecef;
-            color: #495057;
+            background: #eff6ff;
+            color: #1e40af;
             font-size: 0.75rem;
-            font-weight: bold;
-            padding: 0.25rem 0.6rem;
-            border-radius: 4px;
+            font-weight: 700;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            margin-bottom: 0.75rem;
             text-transform: uppercase;
-            margin-bottom: 0.5rem;
         }
 
         .item-info h3 {
-            font-size: 1.2rem;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #111827;
             margin-bottom: 0.5rem;
-            color: #1a1a1a;
         }
 
         .item-info p {
-            font-size: 0.9rem;
-            color: #666;
-            margin-bottom: 1rem;
+            font-size: 0.925rem;
+            color: #4b5563;
+            margin-bottom: 1.25rem;
             flex-grow: 1;
         }
 
         .item-link {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
             text-decoration: none;
-            color: #007bff;
+            color: #2563eb;
             font-size: 0.9rem;
-            font-weight: bold;
+            font-weight: 700;
+            transition: color 0.2s ease;
         }
 
         .item-link:hover {
+            color: #1d4ed8;
             text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 1rem;
+            margin-top: 4rem;
+            border-top: 1px solid #e5e7eb;
+            color: #6b7280;
+            font-size: 0.875rem;
         }
     </style>
 </head>
@@ -174,80 +191,109 @@
 
     <header>
         <h1>Koleksi Hasil Kerja Digital</h1>
-        <p>Hub simpanan untuk sistem, rekaan grafik, dan fotografi saya.</p>
+        <p>Hab simpanan digital bagi projek sistem, reka bentuk grafik korporat, dan hasil fotografi saya.</p>
     </header>
 
     <div class="container">
         
         <!-- Butang Penapis -->
         <div class="filter-container">
-            <button class="filter-btn active" data-filter="all">Semua</button>
-            <button class="filter-btn" data-filter="grafik">Rekaan Grafik</button>
+            <button class="filter-btn active" data-filter="all">Semua Projek</button>
             <button class="filter-btn" data-filter="sistem">Sistem & Kod</button>
+            <button class="filter-btn" data-filter="grafik">Rekaan Grafik</button>
             <button class="filter-btn" data-filter="foto">Fotografi</button>
         </div>
 
         <!-- Grid Portfolio -->
         <div class="portfolio-grid">
 
-            <!-- Projek 1: Contoh Rekaan Grafik -->
-            <div class="portfolio-item" data-category="grafik">
-                <div class="item-thumbnail">
-                    <!-- Tukar path gambar mengikut folder yang anda buat di GitHub -->
-                    <img src="rekaan-grafik/poster-rasmi.png" alt="Poster Rasmi" onerror="this.src='https://placehold.co/600x400?text=Gambar+Poster'">
-                </div>
-                <div class="item-info">
-                    <span class="badge">Grafik</span>
-                    <h3>Poster Rasmi Pentadbir</h3>
-                    <p>Reka bentuk poster formal bersaiz A3 yang direka khas untuk pengurusan organisasi.</p>
-                    <a href="#" class="item-link">Lihat Fail Penuh &rarr;</a>
-                </div>
-            </div>
-
-            <!-- Projek 2: Contoh Sistem -->
+            <!-- Item 1: Sistem Scan Kehadiran QR -->
             <div class="portfolio-item" data-category="sistem">
                 <div class="item-thumbnail">
-                    <img src="sistem-scan/preview.png" alt="Sistem QR" onerror="this.src='https://placehold.co/600x400?text=Sistem+Scan+QR'">
+                    <!-- Jika fail belum diupload, ia akan memaparkan placeholder kelabu -->
+                    <img src="sistem-scan/preview.png" alt="Sistem Scan QR" onerror="this.src='https://placehold.co/600x400?text=Sistem+Scan+QR'">
                 </div>
                 <div class="item-info">
-                    <span class="badge">Sistem & Kod</span>
-                    <h3>Sistem Scan Kehadiran QR</h3>
-                    <p>Sistem berasaskan web menggunakan vanilla JavaScript untuk imbas kod QR kehadiran secara mobile.</p>
-                    <!-- Anda boleh letak pautan ke folder kod atau demo langsung -->
+                    <span class="badge" style="background: #ecfdf5; color: #065f46;">Sistem</span>
+                    <h3>Sistem Scan QR Kehadiran</h3>
+                    <p>Sistem mudah alih berasaskan Vanilla JS dan HTML5 QR Code Scanner untuk memantau kehadiran pelajar asrama.</p>
                     <a href="sistem-scan/index.html" class="item-link">Uji Sistem &rarr;</a>
                 </div>
             </div>
 
-            <!-- Projek 3: Contoh Fotografi -->
-            <div class="portfolio-item" data-category="foto">
+            <!-- Item 2: Poster Sambutan / Pentadbir Sekolah -->
+            <div class="portfolio-item" data-category="grafik">
                 <div class="item-thumbnail">
-                    <img src="fotografi/landskap.jpg" alt="Foto Landskap" onerror="this.src='https://placehold.co/600x400?text=Koleksi+Foto'">
+                    <img src="rekaan-grafik/poster-pentadbir.png" alt="Poster Rasmi" onerror="this.src='https://placehold.co/600x400?text=Poster+Ucapan+Pentadbir'">
                 </div>
                 <div class="item-info">
-                    <span class="badge">Fotografi</span>
-                    <h3>Koleksi Cinematic Lighting</h3>
-                    <p>Hasil tangkapan gambar kreatif memfokuskan kepada pencahayaan dramatik dan komposisi 3D.</p>
-                    <a href="#" class="item-link">Lihat Galeri &rarr;</a>
+                    <span class="badge" style="background: #fef3c7; color: #92400e;">Grafik</span>
+                    <h3>Poster Ucapan Rasmi Pentadbir</h3>
+                    <p>Reka bentuk poster korporat rasmi berdimensi A3 untuk kegunaan pengurusan pentadbiran sekolah.</p>
+                    <a href="rekaan-grafik/poster-pentadbir.png" class="item-link" target="_blank">Lihat Resolusi Tinggi &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Item 3: Integrasi Data Google Sheets -->
+            <div class="portfolio-item" data-category="sistem">
+                <div class="item-thumbnail">
+                    <img src="sistem-scan/sheets-preview.png" alt="Google Sheets Integration" onerror="this.src='https://placehold.co/600x400?text=Integrasi+Google+Sheets'">
+                </div>
+                <div class="item-info">
+                    <span class="badge" style="background: #ecfdf5; color: #065f46;">Sistem</span>
+                    <h3>Sistem Hantar Data Ke Google Sheets</h3>
+                    <p>Integrasi borang imbasan kod QR terus ke Google Sheets menggunakan Google Apps Script (Web App API).</p>
+                    <a href="https://github.com" class="item-link" target="_blank">Lihat Kod Sumber &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Item 4: Hasil Kerja Fotografi - Cinematic Lighting -->
+            <div class="portfolio-item" data-category="foto">
+                <div class="item-thumbnail">
+                    <img src="fotografi/cinematic.jpg" alt="Cinematic Photo" onerror="this.src='https://placehold.co/600x400?text=Cinematic+Lighting'">
+                </div>
+                <div class="item-info">
+                    <span class="badge" style="background: #f3e8ff; color: #6b21a8;">Foto</span>
+                    <h3>Eksperimen Cinematic Lighting</h3>
+                    <p>Koleksi foto berkualiti tinggi yang menggunakan konsep pencahayaan dramatik dan komposisi profesional.</p>
+                    <a href="fotografi/" class="item-link">Lihat Galeri Foto &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Item 5: Reka Bentuk Banner Selamat Datang -->
+            <div class="portfolio-item" data-category="grafik">
+                <div class="item-thumbnail">
+                    <img src="rekaan-grafik/banner-welcome.png" alt="Banner Selamat Datang" onerror="this.src='https://placehold.co/600x400?text=Banner+Selamat+Datang'">
+                </div>
+                <div class="item-info">
+                    <span class="badge" style="background: #fef3c7; color: #92400e;">Grafik</span>
+                    <h3>Banner Ucapan Aluan Sekolah</h3>
+                    <p>Reka bentuk banner selamat datang berorientasikan tipografi 3D beresolusi tinggi untuk acara rasmi.</p>
+                    <a href="rekaan-grafik/banner-welcome.png" class="item-link" target="_blank">Buka Fail Asal &rarr;</a>
                 </div>
             </div>
 
         </div>
     </div>
 
-    <!-- --- JAVASCRIPT UNTUK FILTERING --- -->
+    <footer>
+        <p>&copy; 2026 Koleksi Digital Saya. Dihoskan secara percuma menggunakan GitHub Pages.</p>
+    </footer>
+
+    <!-- JAVASCRIPT UNTUK PENAPISAN ITEM -->
     <script>
         const filterButtons = document.querySelectorAll('.filter-btn');
         const portfolioItems = document.querySelectorAll('.portfolio-item');
 
         filterButtons.forEach(button => {
             button.addEventListener('click', () => {
-                // Tukar butang aktif
+                // Kemaskini butang aktif
                 filterButtons.forEach(btn => btn.classList.remove('active'));
                 button.classList.add('active');
 
                 const filterValue = button.getAttribute('data-filter');
 
-                // Tapis item grid
+                // Tapis item mengikut kategori
                 portfolioItems.forEach(item => {
                     if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
                         item.classList.remove('hide');
