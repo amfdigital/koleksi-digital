@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Koleksi Hasil Kerja Digital</title>
+    <style>
+        /* --- RESET & BASE STYLES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #1a1a1a;
+            color: #ffffff;
+            text-align: center;
+            padding: 2.5rem 1rem;
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            color: #aaa;
+            font-size: 0.95rem;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+
+        /* --- FILTER BUTTONS (Mobile Responsive) --- */
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap; /* Butang turun bawah automatik jika skrin kecil */
+        }
+
+        .filter-btn {
+            background: #ffffff;
+            border: 1px solid #ddd;
+            padding: 0.5rem 1.2rem;
+            font-size: 0.9rem;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: #007bff;
+            color: white;
+            border-color: #007bff;
+        }
+
+        /* --- PORTFOLIO GRID --- */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: 1fr; /* 1 kolum untuk telefon pintar */
+            gap: 1.5rem;
+        }
+
+        /* Skrin Tablet (Lebih besar dari 600px) -> 2 Kolum */
+        @media (min-width: 600px) {
+            .portfolio-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Skrin Laptop/PC (Lebih besar dari 900px) -> 3 Kolum */
+        @media (min-width: 900px) {
+            .portfolio-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* --- CARD STYLE --- */
+        .portfolio-item {
+            background: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-5px); /* Efek terapung sedikit bila mouse lalu */
+        }
+
+        .portfolio-item.hide {
+            display: none; /* Menyembunyikan item yang tidak dipilih */
+        }
+
+        /* Bahagian Gambar Visual */
+        .item-thumbnail {
+            width: 100%;
+            height: 200px;
+            background-color: #ddd;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .item-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Gambar akan dipotong muat-muat ke dalam kotak */
+        }
+
+        /* Bahagian Info Teks */
+        .item-info {
+            padding: 1.2rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .badge {
+            align-self: flex-start;
+            background: #e9ecef;
+            color: #495057;
+            font-size: 0.75rem;
+            font-weight: bold;
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .item-info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: #1a1a1a;
+        }
+
+        .item-info p {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        .item-link {
+            display: inline-block;
+            text-decoration: none;
+            color: #007bff;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .item-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Koleksi Hasil Kerja Digital</h1>
+        <p>Hub simpanan untuk sistem, rekaan grafik, dan fotografi saya.</p>
+    </header>
+
+    <div class="container">
+        
+        <!-- Butang Penapis -->
+        <div class="filter-container">
+            <button class="filter-btn active" data-filter="all">Semua</button>
+            <button class="filter-btn" data-filter="grafik">Rekaan Grafik</button>
+            <button class="filter-btn" data-filter="sistem">Sistem & Kod</button>
+            <button class="filter-btn" data-filter="foto">Fotografi</button>
+        </div>
+
+        <!-- Grid Portfolio -->
+        <div class="portfolio-grid">
+
+            <!-- Projek 1: Contoh Rekaan Grafik -->
+            <div class="portfolio-item" data-category="grafik">
+                <div class="item-thumbnail">
+                    <!-- Tukar path gambar mengikut folder yang anda buat di GitHub -->
+                    <img src="rekaan-grafik/poster-rasmi.png" alt="Poster Rasmi" onerror="this.src='https://placehold.co/600x400?text=Gambar+Poster'">
+                </div>
+                <div class="item-info">
+                    <span class="badge">Grafik</span>
+                    <h3>Poster Rasmi Pentadbir</h3>
+                    <p>Reka bentuk poster formal bersaiz A3 yang direka khas untuk pengurusan organisasi.</p>
+                    <a href="#" class="item-link">Lihat Fail Penuh &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Projek 2: Contoh Sistem -->
+            <div class="portfolio-item" data-category="sistem">
+                <div class="item-thumbnail">
+                    <img src="sistem-scan/preview.png" alt="Sistem QR" onerror="this.src='https://placehold.co/600x400?text=Sistem+Scan+QR'">
+                </div>
+                <div class="item-info">
+                    <span class="badge">Sistem & Kod</span>
+                    <h3>Sistem Scan Kehadiran QR</h3>
+                    <p>Sistem berasaskan web menggunakan vanilla JavaScript untuk imbas kod QR kehadiran secara mobile.</p>
+                    <!-- Anda boleh letak pautan ke folder kod atau demo langsung -->
+                    <a href="sistem-scan/index.html" class="item-link">Uji Sistem &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Projek 3: Contoh Fotografi -->
+            <div class="portfolio-item" data-category="foto">
+                <div class="item-thumbnail">
+                    <img src="fotografi/landskap.jpg" alt="Foto Landskap" onerror="this.src='https://placehold.co/600x400?text=Koleksi+Foto'">
+                </div>
+                <div class="item-info">
+                    <span class="badge">Fotografi</span>
+                    <h3>Koleksi Cinematic Lighting</h3>
+                    <p>Hasil tangkapan gambar kreatif memfokuskan kepada pencahayaan dramatik dan komposisi 3D.</p>
+                    <a href="#" class="item-link">Lihat Galeri &rarr;</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- --- JAVASCRIPT UNTUK FILTERING --- -->
+    <script>
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Tukar butang aktif
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                const filterValue = button.getAttribute('data-filter');
+
+                // Tapis item grid
+                portfolioItems.forEach(item => {
+                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                        item.classList.remove('hide');
+                    } else {
+                        item.classList.add('hide');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
